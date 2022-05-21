@@ -4,6 +4,8 @@
 //const { default: axios } = require("axios");
 // const { response } = require("express");
 
+const { default: axios } = require("axios");
+
 // PROBLEM 1
 /*
     In the index.html file in this folder there is a button with an id of 'say-hello-button'!
@@ -88,7 +90,13 @@ sayHelloButton.addEventListener('click', sayHello);
 const ohMy = () => {
     // YOUR CODE HERE
     axios.get('http://localhost:3000/animals').then((res)=>{
-        console.log(res.data);
+        for ( const resLoop in res.data){
+            let newPara = document.createElement('p');
+            newPara.textContent = resLoop[i];
+            p.append(p);
+
+            
+        }
     })
 }
 
@@ -123,25 +131,22 @@ const repeatMyParam = () => {
 // PROBLEM 7
 /*
     Now that we have the response data, let's add it to our web page! 
-    
     Inside the repeatMyParam function above, grab the element with the id of 'repeat-text' and set its textContent property equal to the response data.
 */
-
 // Code in the repeatMyParam function above
-
-
 
 // PROBLEM 8
 /*
     Time to attach a query to our request!
-
     Write a function that makes a get request to 'http://localhost:3000/query-test', with a query of your choice on the end!
-
     Outside of your new function, select the button with the id "query-button" and add a click event listener that calls your function.
 */
-
 // CODE HERE
-
+const hamalQuery = () => {
+axios.get('http://localhost:3000/query-test?hamalquery=hamal&devmountainrocks=devmountain')
+}
+let hamalQueryBtn = document.querySelector('#query-button')
+hamalQueryBtn.addEventListener('click', hamalQuery);
 
 
 ////////////////
